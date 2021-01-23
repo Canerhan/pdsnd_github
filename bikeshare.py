@@ -28,11 +28,11 @@ def get_filters():
         print("Sorry, we don\'t have data for that location.")
         city = str(input('Which city you want to explore?')).lower()
     months = ['january', 'february', 'march', 'april', 'may', 'june']
-    month = input('Which month you want to explore? Please return the month as a text. Your Options are : {} . If you want want to consider all months, type all '.format(months)).lower()
+    month = input('Which month you want to explore? Please return the month as a text. Your options are : {} . If you want want to consider all months, type all '.format(months)).lower()
     if month != 'all':
         while (month not in ['january', 'february', 'march', 'april', 'may', 'june', 'all']):
                 print('Please enter the month again.')
-                month = input('Which month you want to explore? Please return the month as a text. Your Options are : {} . If you want want to consider all months, type all '.format(months)).lower()     
+                month = input('Which month you want to explore? Please return the month as a text. Your options are : {} . If you want want to consider all months, type all '.format(months)).lower()     
         month = months.index(month) + 1
     day = str(input('Which day of the Week you want to explore? Please return the day-name like Monday or Tuesday.\ If you want want to consider all weeks, type all')).lower()
     if day != 'all':
