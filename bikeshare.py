@@ -1,4 +1,3 @@
-import time
 import pandas as pd
 import numpy as np
 
@@ -28,11 +27,11 @@ def get_filters():
         print("Sorry, we don\'t have data for that location.")
         city = str(input('Which city you want to explore?')).lower()
     months = ['january', 'february', 'march', 'april', 'may', 'june']
-    month = input('Which month you want to explore? Please return the month as a text. Your Options are : {} . If you want want to consider all months, type all '.format(months)).lower()
+    month = input('Which month you want to explore? Please return the month as a text. Your options are : {} . If you want want to consider all months, type all '.format(months)).lower()
     if month != 'all':
         while (month not in ['january', 'february', 'march', 'april', 'may', 'june', 'all']):
                 print('Please enter the month again.')
-                month = input('Which month you want to explore? Please return the month as a text. Your Options are : {} . If you want want to consider all months, type all '.format(months)).lower()     
+                month = input('Which month you want to explore? Please return the month as a text. Your options are : {} . If you want want to consider all months, type all '.format(months)).lower()     
         month = months.index(month) + 1
     day = str(input('Which day of the Week you want to explore? Please return the day-name like Monday or Tuesday.\ If you want want to consider all weeks, type all')).lower()
     if day != 'all':
@@ -73,11 +72,6 @@ def show_data(df):
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
-    try:
-        print('\nCalculating The Most Frequent Times of Travel...\n')
-        start_time = time.time()
-    except:
-        pass
  
     print('---------------------------------')
 
@@ -108,8 +102,6 @@ def time_stats(df):
         print('And it was used {} times'.format(df['hour'].value_counts().max()))
     except:
         pass
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
     return
 
 
@@ -117,7 +109,6 @@ def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
-    start_time = time.time()
 
     # TO DO: display most commonly used start station
     try:
@@ -144,16 +135,13 @@ def station_stats(df):
         print(df.groupby(['Start Station','End Station']).size().reset_index().rename(columns={0:'count'}).max())
     except:
         pass
-    
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+
     return
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...\n')
-    start_time = time.time()
 
     # TO DO: display total travel time
     try:
@@ -168,14 +156,11 @@ def trip_duration_stats(df):
     print('What was our customers median travel time?')
     print(df['Trip Duration'].median())
     print('---------------------------------')
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
     return
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
     print('\nCalculating User Stats...\n')
-    start_time = time.time()
     try:
         print('What are the numbers for each user type ?')
         print(df['User Type'].value_counts())
@@ -201,8 +186,6 @@ def user_stats(df):
         print('The most common birth year is {}'.format(df['Birth Year'].median()))
     except:
         pass
-    print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
     return
 
 
