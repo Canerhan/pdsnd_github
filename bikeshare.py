@@ -15,7 +15,6 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
-
     Returns:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
@@ -47,7 +46,6 @@ def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
@@ -78,8 +76,7 @@ def time_stats(df):
         start_time = time.time()
     except:
         pass
- 
-    print('---------------------------------')
+
 
 # TO DO: display the most common month
     try:
@@ -88,8 +85,7 @@ def time_stats(df):
         print('and the value is {}'.format(df['month'].value_counts().max()))
     except:
         pass
-    
-    print('---------------------------------')    
+     
     
     # TO DO: display the most common day of week
     try:
@@ -99,7 +95,6 @@ def time_stats(df):
     except:
         pass
     
-    print('---------------------------------')
     
     # TO DO: display the most common start hour
     try:
@@ -126,8 +121,7 @@ def station_stats(df):
         print('The station was used {} times'.format(df['Start Station'].value_counts().max()))    
     except:
         pass
-    
-    print('---------------------------------')
+
     # TO DO: display most commonly used end station
     
     try:
@@ -137,7 +131,6 @@ def station_stats(df):
     except:
         pass
     
-    print('---------------------------------')
     # TO DO: display most frequent combination of start station and end station trip
     try:
         print('What is the most frequent combination of start station and end station trip')
@@ -161,13 +154,11 @@ def trip_duration_stats(df):
         print(df['Trip Duration'].sum())
     except:
         pass
-    
-    print('---------------------------------')
+
     # TO DO: display mean travel time
     
     print('What was our customers median travel time?')
     print(df['Trip Duration'].median())
-    print('---------------------------------')
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     return
