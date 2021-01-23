@@ -17,5 +17,5 @@ new_york_city.csv
 washington.csv
 
 ### Credits
-I have mnade this proect for my udacity course "Programming for Data Science with Python Nanodegree Program".
-I have cloned the repo from https://github.com/udacity/pdsnd_github
+I have made this project for my udacity course "Programming for Data Science with Python Nanodegree Program".
+I have cloned the repo from https://github.com/udacity/pdsnd_github .
